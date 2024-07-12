@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /functions-instance
+
+spring:
+  profiles:
+    active: ${spring_profiles_active:dev}
+
+logging:
+  config: classpath:log4j2.xml
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  global-config:
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
