@@ -8,10 +8,10 @@ spring:
     date-format: yyy-MM-dd
     time-zone: GMT+8
   redis:
-    host: r-2zeayydrutro48bbkrpd.redis.rds.aliyuncs.com
-    port: 6480
-    password: tjWjCR^DT
-    database: 4
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    database: 0
     timeout: 300
     jedis:
       pool:
