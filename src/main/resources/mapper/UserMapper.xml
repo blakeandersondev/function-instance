@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blake.instance.common.mapper.UserMapper">
+
+  <resultMap id="BaseResultMap" type="com.blake.instance.common.domain.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="points" jdbcType="INTEGER" property="points" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, `name`, `points`, version
+  </sql>
+
+  <select id="getById" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <update id="updatePointsById">
+      update
+          user
+      set points = points + #{increment,jdbcType=INTEGER},
+          version = version + 1
+      where id = #{id,jdbcType=BIGINT}
+        and version = #{version,jdbcType=INTEGER}
+  </update>
+</mapper>

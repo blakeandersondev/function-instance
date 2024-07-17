@@ -10,10 +10,8 @@ spring:
 logging:
   config: classpath:log4j2.xml
 
-mybatis-plus:
+mybatis:
   mapper-locations: classpath*:mapper/*.xml
-  global-config:
-    banner: false
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
